@@ -7,7 +7,7 @@ function App(props) {
   return (
     <>
      <Navbar title="convertCase" />
-     <TextEdit title = "Text" placeholder="Enter ur text here..." />
+     <TextEdit title = "Text" placeholder="Enter ur text here..." upperCase="UpperCase Converter" lowerCase="LowerCase Converter"/>
     </>
   )
 }
