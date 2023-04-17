@@ -13,10 +13,18 @@ const TextEdit = (props) => {
     // console.log("On change")
     setText(event.target.value);
   }
+  // word.charAt(0).toUpperCase()+ word.slice(1)
   // for lower case generator
   const handleLowerClick = (event) => {
     // console.log("lowercase was clicked")
     let newText = text.toLowerCase();
+    setText(newText)
+  }
+
+  // title case generator
+  const handleTitleClick = (event) => {
+    // console.log("lowercase was clicked")
+    let newText = text.charAt(0).toUpperCase()+ text.slice(1);
     setText(newText)
   }
 
@@ -38,7 +46,7 @@ const TextEdit = (props) => {
       {/* analyze dataa */}
       <div className="summary flex justify-center items-center space-x-3 mt-2">
         <div>Charracter count:{text.length}</div>
-        <div>Word count:{text.split(" ").length} </div>
+        <div>Word count:{text.split(" ").length}</div>
         <div>Line count:{text.split(/\r\n|\r|\n/).length}</div>
 
       </div>
@@ -49,6 +57,10 @@ const TextEdit = (props) => {
 
         <div className="my-3">
           <button type="button" className="focus:outline-none text-white bg-purple-700 hover:bg-purple-900 focus:ring-4 focus:ring-purple-600 font-medium rounded-lg text-md px-5 py-2.5 mr-2 mb-2 dark:focus:ring-purple-700" onClick={handleLowerClick}>{props.lowerCase}</button>
+        </div>
+
+        <div className="my-3">
+          <button type="button" className="focus:outline-none text-white bg-purple-700 hover:bg-purple-900 focus:ring-4 focus:ring-purple-600 font-medium rounded-lg text-md px-5 py-2.5 mr-2 mb-2 dark:focus:ring-purple-700" onClick={handleTitleClick}>{props.titleCase}</button>
         </div>
       </div>
 
