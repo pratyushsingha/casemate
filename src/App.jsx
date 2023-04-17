@@ -6,7 +6,7 @@ import TextEdit from './components/TextEdit'
 function App(props) {
   return (
     <>
-     <Navbar title="convertCase" />
+     <Navbar title="ConvertCase" />
      <TextEdit title = "Text" placeholder="Enter ur text here..." upperCase="UpperCase Converter" lowerCase="LowerCase Converter"/>
     </>
   )

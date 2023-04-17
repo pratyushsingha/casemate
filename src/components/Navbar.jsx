@@ -8,7 +8,7 @@ const Navbar = (props) => {
   <div className="container mx-auto flex justify-center flex-wrap p-5 flex-col md:flex-row items-center">
     <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
     {/* <img src={logo} alt="Logo" /> */}
-      <span className="ml-3 text-xl">{props.title}</span>
+      <span className="text-xl">{props.title}</span>
     </a>
    
   </div>
