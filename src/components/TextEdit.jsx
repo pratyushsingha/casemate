@@ -35,14 +35,15 @@ const TextEdit = (props) => {
     for (let i = 0; i < newText.length; i++) {
       newText[i] = newText[i].charAt(0).toUpperCase() + newText[i].slice(1);
     }
-    // let newText = text.toLowerCase();
     setText(newText.join(" "));
   }
+
 // copy
   const handleCopyClick = (event) => {
   var newText = document.getElementById("preview")
   newText.select();
   navigator.clipboard.writeText(newText.value);
+  props.displayAlert("Text copied to clipboard")
   }
 
   // extraSpace remover
