@@ -75,6 +75,10 @@ const TextEdit = (props) => {
           </div>
         </div>
       </div>
+      <div className="flex justify-center items-center">
+            <button type="button" className="focus:outline-none text-white bg-purple-700 hover:bg-purple-900 focus:ring-4 focus:ring-purple-600 font-medium rounded-lg text-xs  md:text-lg px-5 py-2.5 mr-2 mb-2 dark:focus:ring-purple-700" onClick={handleTitleClick}>{props.titleCase}</button>
+          </div>
+      
     </>
   )
 }
