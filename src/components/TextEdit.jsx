@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import hi from '/hi.gif';
 
+
 const TextEdit = (props) => {
   // for uppercase converter
   const handleUpClick = (event) => {
     // console.log("UpperCase was clicked")
     let newText = text.toUpperCase();
     setText(newText)
+    document.title = "UPPERCASE CONVERTER";
   }
 
   const handleOnChange = (event) => {
@@ -19,6 +21,8 @@ const TextEdit = (props) => {
     // console.log("lowercase was clicked")
     let newText = text.toLowerCase();
     setText(newText);
+    document.title = "lowercase converter";
+
   }
 
   // sentence case generator
@@ -26,6 +30,8 @@ const TextEdit = (props) => {
     // console.log("lowercase was clicked")
     let newText = text.toLowerCase().replace(/(^\s*\w|[\.\!\?]\s*\w)/g, function (c) { return c.toUpperCase() });
     setText(newText)
+    document.title = "Sentencecase converter";
+
   }
 
   // sentence case generator
@@ -36,6 +42,8 @@ const TextEdit = (props) => {
       newText[i] = newText[i].charAt(0).toUpperCase() + newText[i].slice(1);
     }
     setText(newText.join(" "));
+    document.title = "Titlecase Converter";
+
   }
 
 // copy
@@ -50,6 +58,7 @@ const TextEdit = (props) => {
   const handleSpaceClick = (event) => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
+    document.title = "Extra Space Remover";
   }
 
 
@@ -63,9 +72,9 @@ const TextEdit = (props) => {
         </div>
         <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{props.title}</label>
         <div className="flex space-x-4">
-          <textarea id="message" rows="8" onChange={handleOnChange} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder={props.placeholder}></textarea>
+          <textarea id="message" rows="8" onChange={handleOnChange} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-blue-500 focus:ring-blue-500 focus:border-blue-500" placeholder={props.placeholder}></textarea>
 
-          <textarea id="preview" rows="8" value={text} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder={props.placeholder}></textarea>
+          <textarea id="preview" rows="8" value={text} className="block  p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-blue-500 focus:ring-blue-500 focus:border-blue-500" placeholder={props.placeholder}></textarea>
         </div>
       </div>
       {/* analyze dataa */}
@@ -75,6 +84,7 @@ const TextEdit = (props) => {
         <div className='text-xs md:text-lg'>Line count:{text.split(/\r\n|\r|\n/).length}</div>
       </div>
       {/*  */}
+
       <div className="buttonMiddle flex justify-center items-center">
         <div className="flex justify-center items-center">
           <button type="button" className="focus:outline-none text-xs  md:text-lg  text-white bg-purple-700 hover:bg-purple-900 focus:ring-4 focus:ring-purple-600 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:focus:ring-purple-700" onClick={handleUpClick}>{props.upperCase}</button>

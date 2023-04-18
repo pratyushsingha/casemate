@@ -3,8 +3,8 @@ import React from 'react'
 const Alert = (props) => {
     return (
         
-            props.alert && <div className="p-3 mb-4 text-sm flex justify-center items-center text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
-                <span className="font-medium"><strong>{props.alert.msg}</strong></span>.
+            props.alert && <div className="p-1 text-xs md:text-sm flex justify-center items-center " role="alert">
+                <span className="font-medium text-green-800 rounded-lg bg-green-50"><strong>{props.alert.msg}</strong></span>.
             </div>
     )
 }
