@@ -80,7 +80,7 @@ const TextEdit = (props) => {
       {/* analyze dataa */}
       <div className="summary flex justify-center items-center space-x-3 mt-2">
         <div className='text-xs md:text-lg'>Character count:{text.length}</div>
-        <div className='text-xs md:text-lg'>Word count:{text.split(/\s+/).filter((element)=>{return element.length!==0}).length}</div>
+        <div className='text-xs md:text-lg'>Word count:{text.trim().split(/\s+/).length}</div>
         <div className='text-xs md:text-lg'>Line count:{text.split(/\r\n|\r|\n/).length}</div>
       </div>
       {/*  */}
