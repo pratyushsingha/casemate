@@ -63,7 +63,7 @@ const TextEdit = (props) => {
 
 
 
-  const [text, setText] = useState("preview text");
+  const [text, setText] = useState("");
   return (
     <>
       <div className="message md:mx-96">
@@ -72,15 +72,15 @@ const TextEdit = (props) => {
         </div>
         <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{props.title}</label>
         <div className="flex space-x-4">
-          <textarea id="message" rows="8" onChange={handleOnChange} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-blue-500 focus:ring-blue-500 focus:border-blue-500" placeholder={props.placeholder}></textarea>
+          <textarea id="message" rows="8" onChange={handleOnChange} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border-blue-500 focus:ring-blue-500 focus:border-blue-500 border-2" placeholder={props.placeholder}></textarea>
 
-          <textarea id="preview" rows="8" value={text} className="block  p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-blue-500 focus:ring-blue-500 focus:border-blue-500" placeholder={props.placeholder}></textarea>
+          <textarea id="preview" rows="8" value={text} className="block  p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border-blue-500 border-2 focus:ring-blue-500 focus:border-blue-500" placeholder={props.preview}></textarea>
         </div>
       </div>
       {/* analyze dataa */}
       <div className="summary flex justify-center items-center space-x-3 mt-2">
         <div className='text-xs md:text-lg'>Character count:{text.length}</div>
-        <div className='text-xs md:text-lg'>Word count:{text.split(" ").length}</div>
+        <div className='text-xs md:text-lg'>Word count:{text.split(" ").filter((element)=>{return element.length!==0}).length}</div>
         <div className='text-xs md:text-lg'>Line count:{text.split(/\r\n|\r|\n/).length}</div>
       </div>
       {/*  */}

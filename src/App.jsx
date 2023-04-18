@@ -21,7 +21,7 @@ function App() {
   return (
     <>
       <Navbar title="ConvertCase" />
-      <TextEdit title="Text" placeholder="Enter ur text here..." upperCase="UPPER CASE" lowerCase="lower case" sentenceCase="Sentence case" titleCase="Title Case" copy="Copy" space="Remove Extra Spaces" displayAlert={displayAlert} />
+      <TextEdit title="Text" placeholder="Enter ur text here..." preview="Preview Text" upperCase="UPPER CASE" lowerCase="lower case" sentenceCase="Sentence case" titleCase="Title Case" copy="Copy" space="Remove Extra Spaces" displayAlert={displayAlert} />
       <Alert alert={alert} />
 
     </>
