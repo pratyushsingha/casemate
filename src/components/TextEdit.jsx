@@ -38,6 +38,19 @@ const TextEdit = (props) => {
     // let newText = text.toLowerCase();
     setText(newText.join(" "));
   }
+// copy
+  const handleCopyClick = (event) => {
+  var newText = document.getElementById("preview")
+  newText.select();
+  navigator.clipboard.writeText(newText.value);
+  }
+
+  // extraSpace remover
+  const handleSpaceClick = (event) => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "));
+  }
+
 
 
   const [text, setText] = useState("preview text");
@@ -49,14 +62,14 @@ const TextEdit = (props) => {
         </div>
         <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{props.title}</label>
         <div className="flex space-x-4">
-          <textarea id="message" rows="4" onChange={handleOnChange} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder={props.placeholder}></textarea>
+          <textarea id="message" rows="8" onChange={handleOnChange} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder={props.placeholder}></textarea>
 
-          <textarea id="message" rows="4" value={text} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder={props.placeholder}></textarea>
+          <textarea id="preview" rows="8" value={text} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder={props.placeholder}></textarea>
         </div>
       </div>
       {/* analyze dataa */}
       <div className="summary flex justify-center items-center space-x-3 mt-2">
-        <div className='text-xs md:text-lg'>Charracter count:{text.length}</div>
+        <div className='text-xs md:text-lg'>Character count:{text.length}</div>
         <div className='text-xs md:text-lg'>Word count:{text.split(" ").length}</div>
         <div className='text-xs md:text-lg'>Line count:{text.split(/\r\n|\r|\n/).length}</div>
       </div>
@@ -71,14 +84,20 @@ const TextEdit = (props) => {
           </div>
 
           <div className="my-3">
-            <button type="button" className="focus:outline-none text-white bg-purple-700 hover:bg-purple-900 focus:ring-4 focus:ring-purple-600 font-medium rounded-lg text-xs  md:text-lg px-5 py-2.5 mr-2 mb-2 dark:focus:ring-purple-700" onClick={handleSentenceClick}>{props.sentenceCase}</button>
+            <button type="button" className="focus:outline-none text-white bg-purple-700 hover:bg-purple-900 focus:ring-4 focus:ring-purple-600 font-medium rounded-lg text-xs  md:text-lg px-5 py-2.5 mr-2 mb-2" onClick={handleSentenceClick}>{props.sentenceCase}</button>
           </div>
         </div>
       </div>
       <div className="flex justify-center items-center">
-            <button type="button" className="focus:outline-none text-white bg-purple-700 hover:bg-purple-900 focus:ring-4 focus:ring-purple-600 font-medium rounded-lg text-xs  md:text-lg px-5 py-2.5 mr-2 mb-2 dark:focus:ring-purple-700" onClick={handleTitleClick}>{props.titleCase}</button>
-          </div>
-      
+        <button type="button" className="focus:outline-none text-white bg-purple-700 hover:bg-purple-900 focus:ring-4 focus:ring-purple-600 font-medium rounded-lg text-xs  md:text-lg px-5 py-2.5 mr-2 mb-2" onClick={handleTitleClick}>{props.titleCase}</button>
+
+        <button type="button" className="focus:outline-none text-white bg-purple-700 hover:bg-purple-900 focus:ring-4 focus:ring-purple-600 font-medium rounded-lg text-xs  md:text-lg px-5 py-2.5 mr-2 mb-2" onClick={handleSpaceClick}>{props.space}</button>
+
+        <button type="button" className="focus:outline-none text-white bg-red-600 hover:bg-red-900 focus:ring-4 focus:ring-red-500 font-medium rounded-lg text-xs  md:text-lg px-5 py-2.5 mr-2 mb-2" onClick={handleCopyClick}>{props.copy}</button>
+
+      </div>
+
+
     </>
   )
 }
