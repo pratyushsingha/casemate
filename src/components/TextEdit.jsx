@@ -22,7 +22,6 @@ const TextEdit = (props) => {
     let newText = text.toLowerCase();
     setText(newText);
     document.title = "lowercase converter";
-
   }
 
   // sentence case generator
@@ -43,14 +42,11 @@ const TextEdit = (props) => {
     }
     setText(newText.join(" "));
     document.title = "Titlecase Converter";
-
   }
 
 // copy
   const handleCopyClick = (event) => {
-  var newText = document.getElementById("preview")
-  newText.select();
-  navigator.clipboard.writeText(newText.value);
+  navigator.clipboard.writeText(preview.value);
   props.displayAlert("Text copied to clipboard")
   }
 
@@ -61,7 +57,13 @@ const TextEdit = (props) => {
     document.title = "Extra Space Remover";
   }
 
-
+  // reverse text generator
+  const handleReverseClick = (event) => {
+    // console.log("lowercase was clicked")
+    let newText = text.split('').reverse().join('');
+    setText(newText);
+    document.title = "Reverse Text Generator";
+  }
 
   const [text, setText] = useState("");
   return (
@@ -72,9 +74,9 @@ const TextEdit = (props) => {
         </div>
         <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{props.title}</label>
         <div className="flex space-x-4">
-          <textarea id="message" rows="8" onChange={handleOnChange} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border-blue-500 focus:ring-blue-500 focus:border-blue-500 border-2" placeholder={props.placeholder}></textarea>
+          <textarea id="message" rows="8" onChange={handleOnChange} className="block p-2.5 w-full text-sm md:text-xl text-gray-900 bg-gray-50 rounded-lg border-blue-500 focus:ring-blue-500 focus:border-blue-500 border-2" placeholder={props.placeholder}></textarea>
 
-          <textarea id="preview" rows="8" value={text} className="block  p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border-blue-500 border-2 focus:ring-blue-500 focus:border-blue-500" placeholder={props.preview}></textarea>
+          <textarea id="preview" rows="8" value={text} className="block  p-2.5 w-full text-sm md:text-xl text-gray-900 bg-gray-50 rounded-lg border-blue-500 border-2 focus:ring-blue-500 focus:border-blue-500" placeholder={props.preview}></textarea>
         </div>
       </div>
       {/* analyze dataa */}
@@ -103,6 +105,8 @@ const TextEdit = (props) => {
         <button type="button" className="focus:outline-none text-white bg-purple-700 hover:bg-purple-900 focus:ring-4 focus:ring-purple-600 font-medium rounded-lg text-xs  md:text-lg px-5 py-2.5 mr-2 mb-2" onClick={handleTitleClick}>{props.titleCase}</button>
 
         <button type="button" className="focus:outline-none text-white bg-purple-700 hover:bg-purple-900 focus:ring-4 focus:ring-purple-600 font-medium rounded-lg text-xs  md:text-lg px-5 py-2.5 mr-2 mb-2" onClick={handleSpaceClick}>{props.space}</button>
+
+        <button type="button" className="focus:outline-none text-white bg-purple-700 hover:bg-purple-900 focus:ring-4 focus:ring-purple-600 font-medium rounded-lg text-xs  md:text-lg px-5 py-2.5 mr-2 mb-2" onClick={handleReverseClick}>{props.reverse}</button>
 
         <button type="button" className="focus:outline-none text-white bg-red-600 hover:bg-red-900 focus:ring-4 focus:ring-red-500 font-medium rounded-lg text-xs  md:text-lg px-5 py-2.5 mr-2 mb-2" onClick={handleCopyClick}>{props.copy}</button>
 
