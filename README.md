@@ -15,7 +15,7 @@ Convert text into uppercase, lowercase, sentence case, title case, remove extra 
 
 ## Demo
 
-![convertcase](https://i.postimg.cc/xjMrkJg0/Screenshot-from-2023-04-20-10-04-11.png
+![convertcase](https://i.postimg.cc/SN8ShnRW/mobile.png
 )
 
 ### Responsive
