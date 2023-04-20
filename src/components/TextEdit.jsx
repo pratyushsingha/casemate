@@ -78,12 +78,13 @@ const TextEdit = (props) => {
           <textarea id="message" rows="8" onChange={handleOnChange} className="md:block hidden p-2.5 w-full text-sm md:text-xl text-gray-900 bg-gray-50 rounded-lg border-blue-500 focus:ring-blue-500 focus:border-blue-500 border-2 md:border-4" placeholder={props.placeholder}></textarea>
 
           <textarea id="preview" rows="8" value={text} className="md:block hidden  p-2.5 w-full text-sm md:text-xl text-gray-900 bg-gray-50 rounded-lg border-blue-500 border-2 md:border-4 focus:ring-blue-500 focus:border-blue-500" placeholder={props.preview}></textarea>
-
+        </div>
+        <div className='flex justify-center items-center mx-3'>
           {/* for mobile */}
           <textarea id="message" rows="8" onChange={handleOnChange} value={text} className="md:hidden block p-2.5 w-full text-sm md:text-xl text-gray-900 bg-gray-50 rounded-lg border-blue-500 focus:ring-blue-500 focus:border-blue-500 border-2 md:border-4" placeholder={props.placeholder}></textarea>
         </div>
       </div>
-      {/* analyze dataa */}
+      {/* analyze data */}
       <div className="summary flex justify-center items-center space-x-3 mt-2">
         <div className='text-xs md:text-lg'>Character count:{text.length}</div>
         <div className='text-xs md:text-lg'>Word count:{text.trim().split(/\s+/).length}</div>
@@ -93,6 +94,7 @@ const TextEdit = (props) => {
 
       <div className="buttonMiddle flex justify-center items-center">
         <div className="flex justify-center items-center mt-3">
+          {/* for pc */}
           <button type="button" className="hidden md:block focus:outline-none text-xs  md:text-lg  text-white bg-purple-700 hover:bg-purple-900 focus:ring-4 focus:ring-purple-600 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:focus:ring-purple-700" onClick={handleUpClick}>{props.upperCase}</button>
 
           <button type="button" className="hidden md:block focus:outline-none text-white bg-purple-700 hover:bg-purple-900 focus:ring-4 focus:ring-purple-600 font-medium rounded-lg text-xs md:text-lg  px-5 py-2.5 mr-2 mb-2 dark:focus:ring-purple-700" onClick={handleLowerClick}>{props.lowerCase}</button>
@@ -109,6 +111,7 @@ const TextEdit = (props) => {
         </div>
       </div>
 
+      {/* for phone */}
       <div className="flex justify-center items-center">
         <button type="button" className="block md:hidden focus:outline-none text-xs  md:text-lg  text-white bg-purple-700 hover:bg-purple-900 focus:ring-4 focus:ring-purple-600 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:focus:ring-purple-700" onClick={handleUpClick}>{props.upperCase}</button>
 
@@ -125,10 +128,7 @@ const TextEdit = (props) => {
         <button type="button" className="block md:hidden focus:outline-none text-white bg-purple-700 hover:bg-purple-900 focus:ring-4 focus:ring-purple-600 font-medium rounded-lg text-xs  md:text-lg px-5 py-2.5 mr-2 mb-2" onClick={handleReverseClick}>{props.reverse}</button>
 
         <button type="button" className="block md:hidden focus:outline-none text-white bg-red-600 hover:bg-red-900 focus:ring-4 focus:ring-red-500 font-medium rounded-lg text-xs  md:text-lg px-5 py-2.5 mr-2 mb-2" onClick={handleCopyClick}>{props.copy}</button>
-
       </div>
-
-
     </>
   )
 }
