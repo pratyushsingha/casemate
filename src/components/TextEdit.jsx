@@ -64,6 +64,17 @@ const TextEdit = (props) => {
     setText(newText);
     document.title = "Reverse Text Generator";
   }
+// downloaded text
+  function handleDownload(event) {
+    const element = document.createElement('a');
+    const file = new Blob([text], { type: 'text/plain' });
+    element.href = URL.createObjectURL(file);
+    element.download = 'myFile.txt';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  }
+
 
   const [text, setText] = useState("");
   return (
@@ -73,8 +84,8 @@ const TextEdit = (props) => {
           <img className='w-16 h-16 rounded-2xl' src={hi} alt="" />
         </div>
         <div className='flex justify-between'>
-          <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mx-5 md:text-xl my-2">{props.title}</label>
-
+          <label htmlFor="message" className="hidden md:block mb-2 text-sm font-medium text-gray-900 dark:text-white mx-5 md:text-xl my-2">{props.title}</label>
+          <button type="button" className="block md:hidden focus:outline-none text-white bg-green-600 hover:bg-green-900 focus:ring-4 focus:ring-green-500 font-medium rounded-lg text-xs  md:text-lg px-5 py-2.5 mr-2 mb-2 mx-3" onClick={handleDownload}>{props.download}</button>
           <button type="button" className="block md:hidden focus:outline-none text-white bg-red-600 hover:bg-red-900 focus:ring-4 focus:ring-red-500 font-medium rounded-lg text-xs  md:text-lg px-5 py-2.5 mb-2 mx-3" onClick={handleCopyClick}>{props.copy}</button>
         </div>
         <div className="flex space-x-4 justify-center items-center mx-5">
@@ -111,6 +122,8 @@ const TextEdit = (props) => {
 
           <button type="button" className="hidden md:block focus:outline-none text-white bg-purple-700 hover:bg-purple-900 focus:ring-4 focus:ring-purple-600 font-medium rounded-lg text-xs  md:text-lg px-5 py-2.5 mr-2 mb-2" onClick={handleReverseClick}>{props.reverse}</button>
 
+          <button type="button" className="hidden md:block focus:outline-none text-white bg-green-600 hover:bg-green-900 focus:ring-4 focus:ring-green-500 font-medium rounded-lg text-xs  md:text-lg px-5 py-2.5 mr-2 mb-2" onClick={handleDownload}>{props.download}</button>
+
           <button type="button" className="hidden md:block focus:outline-none text-white bg-red-600 hover:bg-red-900 focus:ring-4 focus:ring-red-500 font-medium rounded-lg text-xs  md:text-lg px-5 py-2.5 mr-2 mb-2" onClick={handleCopyClick}>{props.copy}</button>
         </div>
       </div>
@@ -130,8 +143,6 @@ const TextEdit = (props) => {
         <button type="button" className="block md:hidden focus:outline-none text-white bg-purple-700 hover:bg-purple-900 focus:ring-4 focus:ring-purple-600 font-medium rounded-lg text-xs  md:text-lg px-5 py-2.5 mr-2 mb-2" onClick={handleSpaceClick}>{props.space}</button>
 
         <button type="button" className="block md:hidden focus:outline-none text-white bg-purple-700 hover:bg-purple-900 focus:ring-4 focus:ring-purple-600 font-medium rounded-lg text-xs  md:text-lg px-5 py-2.5 mr-2 mb-2" onClick={handleReverseClick}>{props.reverse}</button>
-
-        {/* <button type="button" className="block md:hidden focus:outline-none text-white bg-red-600 hover:bg-red-900 focus:ring-4 focus:ring-red-500 font-medium rounded-lg text-xs  md:text-lg px-5 py-2.5 mr-2 mb-2" onClick={handleCopyClick}>{props.copy}</button> */}
       </div>
     </>
   )

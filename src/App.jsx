@@ -21,7 +21,7 @@ function App() {
   return (
     <>
       <Navbar title="CaseMate" />
-      <TextEdit title="Text" placeholder="Enter ur text here..." preview="Preview Text" upperCase="UPPER CASE" lowerCase="lower case" sentenceCase="Sentence case" titleCase="Title Case" copy="Copy" space="Remove Spaces" displayAlert={displayAlert} reverse="Reverse Text" />
+      <TextEdit title="Text" placeholder="Enter ur text here..." preview="Preview Text" upperCase="UPPER CASE" lowerCase="lower case" sentenceCase="Sentence case" titleCase="Title Case" copy="Copy" space="Remove Spaces" displayAlert={displayAlert} reverse="Reverse Text" download="Download"/>
       <Alert alert={alert} />
 
     </>
